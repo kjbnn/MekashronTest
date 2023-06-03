@@ -1,0 +1,2267 @@
+<?xml version="1.0"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="IBusinessAPIservice" targetNamespace="http://tempuri.org/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:ns1="urn:CommonWSTypes" xmlns:ns2="urn:eSignatureIntf">
+  <types>
+    <xs:schema targetNamespace="urn:CommonWSTypes" xmlns="urn:CommonWSTypes">
+      <xs:complexType name="ArrayOfString">
+        <xs:complexContent>
+          <xs:restriction base="soapenc:Array">
+            <sequence xmlns="http://www.w3.org/2001/XMLSchema"/>
+            <xs:attribute ref="soapenc:arrayType" n1:arrayType="xs:string[]" xmlns:n1="http://schemas.xmlsoap.org/wsdl/"/>
+          </xs:restriction>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="ArrayOfInt">
+        <xs:complexContent>
+          <xs:restriction base="soapenc:Array">
+            <sequence xmlns="http://www.w3.org/2001/XMLSchema"/>
+            <xs:attribute ref="soapenc:arrayType" n1:arrayType="xs:int[]" xmlns:n1="http://schemas.xmlsoap.org/wsdl/"/>
+          </xs:restriction>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="ArrayOfFloat">
+        <xs:complexContent>
+          <xs:restriction base="soapenc:Array">
+            <sequence xmlns="http://www.w3.org/2001/XMLSchema"/>
+            <xs:attribute ref="soapenc:arrayType" n1:arrayType="xs:double[]" xmlns:n1="http://schemas.xmlsoap.org/wsdl/"/>
+          </xs:restriction>
+        </xs:complexContent>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema targetNamespace="urn:eSignatureIntf" xmlns="urn:eSignatureIntf">
+      <xs:complexType name="ArrayOfByte">
+        <xs:complexContent>
+          <xs:restriction base="soapenc:Array">
+            <sequence xmlns="http://www.w3.org/2001/XMLSchema"/>
+            <xs:attribute ref="soapenc:arrayType" n1:arrayType="xs:unsignedByte[]" xmlns:n1="http://schemas.xmlsoap.org/wsdl/"/>
+          </xs:restriction>
+        </xs:complexContent>
+      </xs:complexType>
+    </xs:schema>
+  </types>
+  <message name="Ol_login0Request">
+    <part name="UserName" type="xs:string"/>
+    <part name="Password" type="xs:string"/>
+    <part name="IP" type="xs:string"/>
+    <part name="Language" type="xs:string"/>
+    <part name="DeviceKind" type="xs:int"/>
+    <part name="SystemInfo" type="ns1:ArrayOfString"/>
+    <part name="Token" type="xs:string"/>
+  </message>
+  <message name="Ol_login0Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="Entity_Add1Request">
+    <part name="ol_EntityId" type="xs:int"/>
+    <part name="ol_UserName" type="xs:string"/>
+    <part name="ol_Password" type="xs:string"/>
+    <part name="BusinessId" type="xs:int"/>
+    <part name="Employee_EntityId" type="xs:int"/>
+    <part name="CategoryID" type="xs:int"/>
+    <part name="Email" type="xs:string"/>
+    <part name="Password" type="xs:string"/>
+    <part name="FirstName" type="xs:string"/>
+    <part name="LastName" type="xs:string"/>
+    <part name="Mobile" type="xs:string"/>
+    <part name="CountryISO" type="xs:string"/>
+    <part name="affiliate_entityID" type="xs:int"/>
+  </message>
+  <message name="Entity_Add1Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="UpdateTerminate2Request">
+    <part name="password" type="xs:string"/>
+  </message>
+  <message name="UpdateTerminate2Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="General_Users_Get3Request">
+    <part name="ol_EntityId" type="xs:int"/>
+    <part name="ol_UserName" type="xs:string"/>
+    <part name="ol_Password" type="xs:string"/>
+    <part name="Fields" type="ns1:ArrayOfString"/>
+    <part name="FilterFields" type="ns1:ArrayOfString"/>
+    <part name="FilterValues" type="ns1:ArrayOfString"/>
+    <part name="LimitFrom" type="xs:int"/>
+    <part name="LimitCount" type="xs:int"/>
+  </message>
+  <message name="General_Users_Get3Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="General_Business_Get4Request">
+    <part name="ol_EntityId" type="xs:int"/>
+    <part name="ol_UserName" type="xs:string"/>
+    <part name="ol_Password" type="xs:string"/>
+    <part name="FilterFields" type="ns1:ArrayOfString"/>
+    <part name="FilterValues" type="ns1:ArrayOfString"/>
+    <part name="LimitFrom" type="xs:int"/>
+    <part name="LimitCount" type="xs:int"/>
+  </message>
+  <message name="General_Business_Get4Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="Sales_Inventory_Get5Request">
+    <part name="ol_EntityId" type="xs:int"/>
+    <part name="ol_UserName" type="xs:string"/>
+    <part name="ol_Password" type="xs:string"/>
+    <part name="BusinessId" type="xs:int"/>
+    <part name="Fields" type="ns1:ArrayOfString"/>
+    <part name="FilterFields" type="ns1:ArrayOfString"/>
+    <part name="FilterValues" type="ns1:ArrayOfString"/>
+    <part name="OrderBy" type="ns1:ArrayOfString"/>
+    <part name="LimitFrom" type="xs:int"/>
+    <part name="LimitCount" type="xs:int"/>
+  </message>
+  <message name="Sales_Inventory_Get5Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="Sales_PaymentsMethod_Get6Request">
+    <part name="ol_EntityId" type="xs:int"/>
+    <part name="ol_UserName" type="xs:string"/>
+    <part name="ol_Password" type="xs:string"/>
+    <part name="BusinessId" type="xs:int"/>
+    <part name="Fields" type="ns1:ArrayOfString"/>
+    <part name="FilterFields" type="ns1:ArrayOfString"/>
+    <part name="FilterValues" type="ns1:ArrayOfString"/>
+    <part name="LimitFrom" type="xs:int"/>
+    <part name="LimitCount" type="xs:int"/>
+  </message>
+  <message name="Sales_PaymentsMethod_Get6Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="Entity_Find7Request">
+    <part name="ol_EntityId" type="xs:int"/>
+    <part name="ol_UserName" type="xs:string"/>
+    <part name="ol_Password" type="xs:string"/>
+    <part name="BusinessId" type="xs:int"/>
+    <part name="Limit_entities_per_business" type="xs:boolean"/>
+    <part name="Fields" type="ns1:ArrayOfString"/>
+    <part name="FilterFields" type="ns1:ArrayOfString"/>
+    <part name="FilterValues" type="ns1:ArrayOfString"/>
+    <part name="LimitFrom" type="xs:int"/>
+    <part name="LimitCount" type="xs:int"/>
+  </message>
+  <message name="Entity_Find7Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="GenerateUserGuide8Request">
+    <part name="FileName" type="xs:string"/>
+    <part name="Guide" type="xs:string"/>
+    <part name="Password" type="xs:string"/>
+  </message>
+  <message name="GenerateUserGuide8Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="GetUserGuide9Request">
+    <part name="FileName" type="xs:string"/>
+    <part name="Guide" type="xs:string"/>
+    <part name="Password" type="xs:string"/>
+  </message>
+  <message name="GetUserGuide9Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="Entity_Update10Request">
+    <part name="ol_EntityID" type="xs:int"/>
+    <part name="ol_Username" type="xs:string"/>
+    <part name="ol_Password" type="xs:string"/>
+    <part name="EntityId" type="xs:int"/>
+    <part name="NamesArray" type="ns1:ArrayOfString"/>
+    <part name="ValuesArray" type="ns1:ArrayOfString"/>
+    <part name="ImageFields" type="ns1:ArrayOfString"/>
+    <part name="ImageValues" type="ns1:ArrayOfString"/>
+  </message>
+  <message name="Entity_Update10Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="Sales_Orders_Update11Request">
+    <part name="ol_EntityID" type="xs:int"/>
+    <part name="ol_Username" type="xs:string"/>
+    <part name="ol_Password" type="xs:string"/>
+    <part name="orderId" type="xs:int"/>
+    <part name="BusinessId" type="xs:int"/>
+    <part name="Employee_EntityId" type="xs:int"/>
+    <part name="NamesArray" type="ns1:ArrayOfString"/>
+    <part name="ValuesArray" type="ns1:ArrayOfString"/>
+  </message>
+  <message name="Sales_Orders_Update11Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="Sales_Orders_Get12Request">
+    <part name="ol_EntityID" type="xs:int"/>
+    <part name="ol_Username" type="xs:string"/>
+    <part name="ol_Password" type="xs:string"/>
+    <part name="BusinessId" type="xs:int"/>
+    <part name="FilterFields" type="ns1:ArrayOfString"/>
+    <part name="FilterValues" type="ns1:ArrayOfString"/>
+    <part name="LimitFrom" type="xs:int"/>
+    <part name="LimitCount" type="xs:int"/>
+  </message>
+  <message name="Sales_Orders_Get12Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="Sales_Orders_Product_Update13Request">
+    <part name="ol_EntityID" type="xs:int"/>
+    <part name="ol_Username" type="xs:string"/>
+    <part name="ol_Password" type="xs:string"/>
+    <part name="order_productId" type="xs:int"/>
+    <part name="BusinessId" type="xs:int"/>
+    <part name="EntityId" type="xs:int"/>
+    <part name="NamesArray" type="ns1:ArrayOfString"/>
+    <part name="ValuesArray" type="ns1:ArrayOfString"/>
+  </message>
+  <message name="Sales_Orders_Product_Update13Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="Sales_Orders_Product_Get14Request">
+    <part name="ol_EntityID" type="xs:int"/>
+    <part name="ol_Username" type="xs:string"/>
+    <part name="ol_Password" type="xs:string"/>
+    <part name="BusinessId" type="xs:int"/>
+    <part name="Fields" type="ns1:ArrayOfString"/>
+    <part name="FilterFields" type="ns1:ArrayOfString"/>
+    <part name="FilterValues" type="ns1:ArrayOfString"/>
+    <part name="LimitFrom" type="xs:int"/>
+    <part name="LimitCount" type="xs:int"/>
+  </message>
+  <message name="Sales_Orders_Product_Get14Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="Sales_Orders_Payment_Update15Request">
+    <part name="ol_EntityID" type="xs:int"/>
+    <part name="ol_Username" type="xs:string"/>
+    <part name="ol_Password" type="xs:string"/>
+    <part name="order_paymentId" type="xs:int"/>
+    <part name="BusinessId" type="xs:int"/>
+    <part name="EntityId" type="xs:int"/>
+    <part name="ChargePayment" type="xs:boolean"/>
+    <part name="CreateOnFailedCharge" type="xs:boolean"/>
+    <part name="NamesArray" type="ns1:ArrayOfString"/>
+    <part name="ValuesArray" type="ns1:ArrayOfString"/>
+  </message>
+  <message name="Sales_Orders_Payment_Update15Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="Entity_Logtraffic16Request">
+    <part name="ol_EntityID" type="xs:int"/>
+    <part name="device" type="xs:int"/>
+    <part name="System" type="xs:string"/>
+    <part name="IP" type="xs:string"/>
+    <part name="URL" type="xs:string"/>
+  </message>
+  <message name="Entity_Logtraffic16Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="CustomFields_GetBoxValues17Request">
+    <part name="ol_EntityID" type="xs:int"/>
+    <part name="ol_Username" type="xs:string"/>
+    <part name="ol_Password" type="xs:string"/>
+    <part name="FieldID" type="xs:int"/>
+  </message>
+  <message name="CustomFields_GetBoxValues17Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="CustomFields_GetTableRecords18Request">
+    <part name="ol_EntityID" type="xs:int"/>
+    <part name="ol_Username" type="xs:string"/>
+    <part name="ol_Password" type="xs:string"/>
+    <part name="TableID" type="xs:int"/>
+    <part name="ParentRecordID" type="xs:int"/>
+  </message>
+  <message name="CustomFields_GetTableRecords18Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="CustomFields_GetFields19Request">
+    <part name="ol_EntityID" type="xs:int"/>
+    <part name="ol_Username" type="xs:string"/>
+    <part name="ol_Password" type="xs:string"/>
+    <part name="FormID" type="xs:int"/>
+  </message>
+  <message name="CustomFields_GetFields19Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="General_ConnectionData_Get20Request">
+    <part name="password" type="xs:string"/>
+  </message>
+  <message name="General_ConnectionData_Get20Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="Entity_VerifyContactInfo21Request">
+    <part name="ol_EntityID" type="xs:int"/>
+    <part name="ol_Username" type="xs:string"/>
+    <part name="ol_Password" type="xs:string"/>
+    <part name="businessId" type="xs:int"/>
+    <part name="entityID" type="xs:int"/>
+    <part name="VerifyType" type="xs:int"/>
+    <part name="VerificationCode" type="xs:string"/>
+  </message>
+  <message name="Entity_VerifyContactInfo21Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="CustomFields_AddBoxValues22Request">
+    <part name="ol_EntityID" type="xs:int"/>
+    <part name="ol_Username" type="xs:string"/>
+    <part name="ol_Password" type="xs:string"/>
+    <part name="FieldId" type="xs:int"/>
+    <part name="Values" type="ns1:ArrayOfString"/>
+  </message>
+  <message name="CustomFields_AddBoxValues22Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="Outgoing_get23Request">
+    <part name="ol_EntityID" type="xs:int"/>
+    <part name="ol_Username" type="xs:string"/>
+    <part name="ol_Password" type="xs:string"/>
+    <part name="MessageType" type="xs:int"/>
+    <part name="MessageID" type="xs:int"/>
+    <part name="EntityID" type="xs:int"/>
+    <part name="Status" type="xs:string"/>
+    <part name="LimitFrom" type="xs:int"/>
+    <part name="LimitCount" type="xs:int"/>
+  </message>
+  <message name="Outgoing_get23Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="Outgoing_set24Request">
+    <part name="ol_EntityID" type="xs:int"/>
+    <part name="ol_Username" type="xs:string"/>
+    <part name="ol_Password" type="xs:string"/>
+    <part name="OutgoingId" type="xs:int"/>
+    <part name="Status" type="xs:int"/>
+    <part name="ErrorMessage" type="xs:string"/>
+    <part name="Destination" type="xs:string"/>
+  </message>
+  <message name="Outgoing_set24Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="Outgoing_add25Request">
+    <part name="ol_EntityID" type="xs:int"/>
+    <part name="ol_Username" type="xs:string"/>
+    <part name="ol_Password" type="xs:string"/>
+    <part name="MessageType" type="xs:int"/>
+    <part name="MessageID" type="xs:int"/>
+    <part name="Priority" type="xs:int"/>
+    <part name="EntityIds" type="ns1:ArrayOfInt"/>
+    <part name="From" type="xs:string"/>
+    <part name="ScheduleTo" type="xs:string"/>
+    <part name="Order_DocumentID" type="xs:int"/>
+    <part name="Destination" type="xs:string"/>
+    <part name="Body" type="xs:string"/>
+  </message>
+  <message name="Outgoing_add25Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="Entity_Forgotpassword26Request">
+    <part name="ol_UserName" type="xs:string"/>
+    <part name="RemindKind" type="xs:int"/>
+    <part name="Language" type="xs:string"/>
+    <part name="businessID" type="xs:int"/>
+  </message>
+  <message name="Entity_Forgotpassword26Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="Incoming_Add27Request">
+    <part name="ol_EntityID" type="xs:int"/>
+    <part name="ol_Username" type="xs:string"/>
+    <part name="ol_Password" type="xs:string"/>
+    <part name="IncomingType" type="xs:int"/>
+    <part name="IncomingFromName" type="xs:string"/>
+    <part name="IncomingFrom" type="xs:string"/>
+    <part name="Subject" type="xs:string"/>
+    <part name="Body" type="xs:string"/>
+  </message>
+  <message name="Incoming_Add27Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="Purchase_Get28Request">
+    <part name="ol_EntityID" type="xs:int"/>
+    <part name="ol_Username" type="xs:string"/>
+    <part name="ol_Password" type="xs:string"/>
+    <part name="FilterFields" type="ns1:ArrayOfString"/>
+    <part name="FilterValues" type="ns1:ArrayOfString"/>
+    <part name="LimitFrom" type="xs:int"/>
+    <part name="LimitCount" type="xs:int"/>
+  </message>
+  <message name="Purchase_Get28Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="Purchase_Products_Get29Request">
+    <part name="ol_EntityID" type="xs:int"/>
+    <part name="ol_Username" type="xs:string"/>
+    <part name="ol_Password" type="xs:string"/>
+    <part name="purchaseId" type="xs:int"/>
+    <part name="Fields" type="ns1:ArrayOfString"/>
+    <part name="FilterFields" type="ns1:ArrayOfString"/>
+    <part name="FilterValues" type="ns1:ArrayOfString"/>
+    <part name="LimitFrom" type="xs:int"/>
+    <part name="LimitCount" type="xs:int"/>
+  </message>
+  <message name="Purchase_Products_Get29Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="Purchase_Update30Request">
+    <part name="ol_EntityID" type="xs:int"/>
+    <part name="ol_Username" type="xs:string"/>
+    <part name="ol_Password" type="xs:string"/>
+    <part name="purchaseId" type="xs:int"/>
+    <part name="EntityId" type="xs:int"/>
+    <part name="employee_entityId" type="xs:int"/>
+    <part name="affiliate_entityID" type="xs:int"/>
+    <part name="agent_usr_ID" type="xs:int"/>
+    <part name="NamesArray" type="ns1:ArrayOfString"/>
+    <part name="ValuesArray" type="ns1:ArrayOfString"/>
+  </message>
+  <message name="Purchase_Update30Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="Sales_Document_Issue31Request">
+    <part name="ol_EntityID" type="xs:int"/>
+    <part name="ol_Username" type="xs:string"/>
+    <part name="ol_Password" type="xs:string"/>
+    <part name="businessID" type="xs:int"/>
+    <part name="EntityId" type="xs:int"/>
+    <part name="Created_employee_entityID" type="xs:int"/>
+    <part name="documentID_prefix" type="xs:int"/>
+    <part name="documentID" type="xs:int"/>
+    <part name="DocumentType" type="xs:int"/>
+    <part name="Order_productIDs" type="ns1:ArrayOfInt"/>
+    <part name="order_paymentIDs" type="ns1:ArrayOfInt"/>
+    <part name="sendbyemail" type="xs:boolean"/>
+    <part name="sendbysms" type="xs:boolean"/>
+  </message>
+  <message name="Sales_Document_Issue31Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="General_DataList_Get32Request">
+    <part name="TableName" type="xs:string"/>
+    <part name="FilterFields" type="ns1:ArrayOfString"/>
+    <part name="FilterValues" type="ns1:ArrayOfString"/>
+  </message>
+  <message name="General_DataList_Get32Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="General_Decrypt33Request">
+    <part name="Identification" type="xs:string"/>
+  </message>
+  <message name="General_Decrypt33Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="Purchase_Product_Update34Request">
+    <part name="ol_EntityID" type="xs:int"/>
+    <part name="ol_Username" type="xs:string"/>
+    <part name="ol_Password" type="xs:string"/>
+    <part name="purchase_productId" type="xs:int"/>
+    <part name="NamesArray" type="ns1:ArrayOfString"/>
+    <part name="ValuesArray" type="ns1:ArrayOfString"/>
+  </message>
+  <message name="Purchase_Product_Update34Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="Purchase_Payment_Update35Request">
+    <part name="ol_EntityID" type="xs:int"/>
+    <part name="ol_Username" type="xs:string"/>
+    <part name="ol_Password" type="xs:string"/>
+    <part name="purchase_paymentId" type="xs:int"/>
+    <part name="NamesArray" type="ns1:ArrayOfString"/>
+    <part name="ValuesArray" type="ns1:ArrayOfString"/>
+  </message>
+  <message name="Purchase_Payment_Update35Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="General_Reports_Get36Request">
+    <part name="ol_EntityID" type="xs:int"/>
+    <part name="ol_Username" type="xs:string"/>
+    <part name="ol_Password" type="xs:string"/>
+    <part name="DLL_File_Name" type="xs:string"/>
+    <part name="FunctionName" type="xs:string"/>
+    <part name="ParamsFields" type="ns1:ArrayOfString"/>
+    <part name="ParamsValues" type="ns1:ArrayOfString"/>
+    <part name="LimitFrom" type="xs:int"/>
+    <part name="LimitCount" type="xs:int"/>
+  </message>
+  <message name="General_Reports_Get36Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="RomaTestFunc37Request">
+    <part name="Password" type="xs:string"/>
+    <part name="Mode" type="xs:int"/>
+    <part name="Params" type="xs:string"/>
+  </message>
+  <message name="RomaTestFunc37Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="Telemarketing_add38Request">
+    <part name="ol_EntityID" type="xs:int"/>
+    <part name="ol_Username" type="xs:string"/>
+    <part name="ol_Password" type="xs:string"/>
+    <part name="campaignID" type="xs:int"/>
+    <part name="EntityIds" type="ns1:ArrayOfInt"/>
+  </message>
+  <message name="Telemarketing_add38Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="System_Version_Get39Request">
+    <part name="ol_Username" type="xs:string"/>
+    <part name="ol_Password" type="xs:string"/>
+  </message>
+  <message name="System_Version_Get39Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="Sales_Orders_Payments_Get40Request">
+    <part name="ol_EntityID" type="xs:int"/>
+    <part name="ol_Username" type="xs:string"/>
+    <part name="ol_Password" type="xs:string"/>
+    <part name="BusinessId" type="xs:int"/>
+    <part name="Fields" type="ns1:ArrayOfString"/>
+    <part name="FilterFields" type="ns1:ArrayOfString"/>
+    <part name="FilterValues" type="ns1:ArrayOfString"/>
+    <part name="LimitFrom" type="xs:int"/>
+    <part name="LimitCount" type="xs:int"/>
+  </message>
+  <message name="Sales_Orders_Payments_Get40Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="Sales_Products_Categories_Get41Request">
+    <part name="ol_EntityID" type="xs:int"/>
+    <part name="ol_Username" type="xs:string"/>
+    <part name="ol_Password" type="xs:string"/>
+    <part name="BusinessId" type="xs:int"/>
+    <part name="Fields" type="ns1:ArrayOfString"/>
+    <part name="FilterFields" type="ns1:ArrayOfString"/>
+    <part name="FilterValues" type="ns1:ArrayOfString"/>
+    <part name="LimitFrom" type="xs:int"/>
+    <part name="LimitCount" type="xs:int"/>
+  </message>
+  <message name="Sales_Products_Categories_Get41Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="Purchase_Catalog_Get42Request">
+    <part name="ol_EntityID" type="xs:int"/>
+    <part name="ol_Username" type="xs:string"/>
+    <part name="ol_Password" type="xs:string"/>
+    <part name="BusinessId" type="xs:int"/>
+    <part name="Fields" type="ns1:ArrayOfString"/>
+    <part name="FilterFields" type="ns1:ArrayOfString"/>
+    <part name="FilterValues" type="ns1:ArrayOfString"/>
+    <part name="OrderBy" type="ns1:ArrayOfString"/>
+    <part name="LimitFrom" type="xs:int"/>
+    <part name="LimitCount" type="xs:int"/>
+  </message>
+  <message name="Purchase_Catalog_Get42Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="Sales_Documents_Get43Request">
+    <part name="ol_EntityID" type="xs:int"/>
+    <part name="ol_Username" type="xs:string"/>
+    <part name="ol_Password" type="xs:string"/>
+    <part name="BusinessId" type="xs:int"/>
+    <part name="Fields" type="ns1:ArrayOfString"/>
+    <part name="FilterFields" type="ns1:ArrayOfString"/>
+    <part name="FilterValues" type="ns1:ArrayOfString"/>
+    <part name="LimitFrom" type="xs:int"/>
+    <part name="LimitCount" type="xs:int"/>
+  </message>
+  <message name="Sales_Documents_Get43Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="UserGuide_ReadWrite44Request">
+    <part name="FileName" type="xs:string"/>
+    <part name="Password" type="xs:string"/>
+    <part name="Content" type="xs:string"/>
+  </message>
+  <message name="UserGuide_ReadWrite44Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="Purchase_Inventory_Count_Update45Request">
+    <part name="ol_EntityID" type="xs:int"/>
+    <part name="ol_Username" type="xs:string"/>
+    <part name="ol_Password" type="xs:string"/>
+    <part name="countId" type="xs:int"/>
+    <part name="businessId" type="xs:int"/>
+    <part name="Purchase_ProductIds" type="ns1:ArrayOfInt"/>
+    <part name="Counts" type="ns1:ArrayOfInt"/>
+  </message>
+  <message name="Purchase_Inventory_Count_Update45Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="Purchase_Inventory_Count_Get46Request">
+    <part name="ol_EntityID" type="xs:int"/>
+    <part name="ol_Username" type="xs:string"/>
+    <part name="ol_Password" type="xs:string"/>
+    <part name="FilterFields" type="ns1:ArrayOfString"/>
+    <part name="FilterValues" type="ns1:ArrayOfString"/>
+    <part name="LimitFrom" type="xs:int"/>
+    <part name="LimitCount" type="xs:int"/>
+  </message>
+  <message name="Purchase_Inventory_Count_Get46Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="Purchase_Inventory_Lost_Update47Request">
+    <part name="ol_EntityID" type="xs:int"/>
+    <part name="ol_Username" type="xs:string"/>
+    <part name="ol_Password" type="xs:string"/>
+    <part name="lostType" type="xs:int"/>
+    <part name="Purchase_ProductIds" type="ns1:ArrayOfInt"/>
+    <part name="Counts" type="ns1:ArrayOfInt"/>
+  </message>
+  <message name="Purchase_Inventory_Lost_Update47Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="Sales_Orders_Commissions_Set48Request">
+    <part name="ol_EntityID" type="xs:int"/>
+    <part name="ol_Username" type="xs:string"/>
+    <part name="ol_Password" type="xs:string"/>
+    <part name="orderID" type="xs:int"/>
+    <part name="EntityIds" type="ns1:ArrayOfInt"/>
+    <part name="Totals" type="ns1:ArrayOfFloat"/>
+  </message>
+  <message name="Sales_Orders_Commissions_Set48Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="Restaurant_Orders_Update49Request">
+    <part name="ol_EntityID" type="xs:int"/>
+    <part name="ol_Username" type="xs:string"/>
+    <part name="ol_Password" type="xs:string"/>
+    <part name="rOrderId" type="xs:int"/>
+    <part name="NamesArray" type="ns1:ArrayOfString"/>
+    <part name="ValuesArray" type="ns1:ArrayOfString"/>
+  </message>
+  <message name="Restaurant_Orders_Update49Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="Restaurant_Zone_Update50Request">
+    <part name="ol_EntityID" type="xs:int"/>
+    <part name="ol_Username" type="xs:string"/>
+    <part name="ol_Password" type="xs:string"/>
+    <part name="zoneId" type="xs:int"/>
+    <part name="NamesArray" type="ns1:ArrayOfString"/>
+    <part name="ValuesArray" type="ns1:ArrayOfString"/>
+  </message>
+  <message name="Restaurant_Zone_Update50Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="Restaurant_Zone_Get51Request">
+    <part name="ol_EntityID" type="xs:int"/>
+    <part name="ol_Username" type="xs:string"/>
+    <part name="ol_Password" type="xs:string"/>
+    <part name="BusinessId" type="xs:int"/>
+    <part name="Fields" type="ns1:ArrayOfString"/>
+    <part name="FilterFields" type="ns1:ArrayOfString"/>
+    <part name="FilterValues" type="ns1:ArrayOfString"/>
+    <part name="LimitFrom" type="xs:int"/>
+    <part name="LimitCount" type="xs:int"/>
+  </message>
+  <message name="Restaurant_Zone_Get51Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="Restaurant_Tables_Update52Request">
+    <part name="ol_EntityID" type="xs:int"/>
+    <part name="ol_Username" type="xs:string"/>
+    <part name="ol_Password" type="xs:string"/>
+    <part name="tableId" type="xs:int"/>
+    <part name="NamesArray" type="ns1:ArrayOfString"/>
+    <part name="ValuesArray" type="ns1:ArrayOfString"/>
+  </message>
+  <message name="Restaurant_Tables_Update52Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="Restaurant_Tables_Get53Request">
+    <part name="ol_EntityID" type="xs:int"/>
+    <part name="ol_Username" type="xs:string"/>
+    <part name="ol_Password" type="xs:string"/>
+    <part name="BusinessId" type="xs:int"/>
+    <part name="Fields" type="ns1:ArrayOfString"/>
+    <part name="FilterFields" type="ns1:ArrayOfString"/>
+    <part name="FilterValues" type="ns1:ArrayOfString"/>
+    <part name="LimitFrom" type="xs:int"/>
+    <part name="LimitCount" type="xs:int"/>
+  </message>
+  <message name="Restaurant_Tables_Get53Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="Restaurant_Orders_Get54Request">
+    <part name="ol_EntityID" type="xs:int"/>
+    <part name="ol_Username" type="xs:string"/>
+    <part name="ol_Password" type="xs:string"/>
+    <part name="BusinessId" type="xs:int"/>
+    <part name="Fields" type="ns1:ArrayOfString"/>
+    <part name="FilterFields" type="ns1:ArrayOfString"/>
+    <part name="FilterValues" type="ns1:ArrayOfString"/>
+    <part name="LimitFrom" type="xs:int"/>
+    <part name="LimitCount" type="xs:int"/>
+  </message>
+  <message name="Restaurant_Orders_Get54Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="PushNotifications55Request">
+    <part name="ol_EntityID" type="xs:int"/>
+    <part name="ol_Username" type="xs:string"/>
+    <part name="ol_Password" type="xs:string"/>
+    <part name="ToEntityId" type="xs:int"/>
+    <part name="Token" type="xs:string"/>
+    <part name="AppId" type="xs:string"/>
+    <part name="Title" type="xs:string"/>
+    <part name="Body" type="xs:string"/>
+    <part name="MessageText" type="xs:string"/>
+    <part name="isSilent" type="xs:boolean"/>
+  </message>
+  <message name="PushNotifications55Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="Entity_Device_Log56Request">
+    <part name="ol_EntityID" type="xs:int"/>
+    <part name="ol_Username" type="xs:string"/>
+    <part name="ol_Password" type="xs:string"/>
+    <part name="LogType" type="xs:int"/>
+    <part name="Devicekind" type="xs:int"/>
+    <part name="Token" type="xs:string"/>
+    <part name="AppID" type="xs:string"/>
+    <part name="log" type="xs:string"/>
+    <part name="Latitude" type="xs:double"/>
+    <part name="Longitude" type="xs:double"/>
+    <part name="EventDate" type="xs:string"/>
+  </message>
+  <message name="Entity_Device_Log56Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="Device_Log_Remove57Request">
+    <part name="Password" type="xs:string"/>
+  </message>
+  <message name="Device_Log_Remove57Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="Outgoing_Campaign_Get58Request">
+    <part name="ol_EntityID" type="xs:int"/>
+    <part name="ol_Username" type="xs:string"/>
+    <part name="ol_Password" type="xs:string"/>
+    <part name="BusinessId" type="xs:int"/>
+    <part name="Fields" type="ns1:ArrayOfString"/>
+    <part name="FilterFields" type="ns1:ArrayOfString"/>
+    <part name="FilterValues" type="ns1:ArrayOfString"/>
+    <part name="LimitFrom" type="xs:int"/>
+    <part name="LimitCount" type="xs:int"/>
+  </message>
+  <message name="Outgoing_Campaign_Get58Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="System_Sync_Get59Request">
+    <part name="ol_EntityID" type="xs:int"/>
+    <part name="ol_Username" type="xs:string"/>
+    <part name="ol_Password" type="xs:string"/>
+    <part name="BusinessId" type="xs:int"/>
+    <part name="DeviceId" type="xs:int"/>
+    <part name="Sync_modified_date" type="xs:string"/>
+    <part name="Tables" type="ns1:ArrayOfString"/>
+  </message>
+  <message name="System_Sync_Get59Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="General_Business_Device_Update60Request">
+    <part name="ol_EntityID" type="xs:int"/>
+    <part name="ol_Username" type="xs:string"/>
+    <part name="ol_Password" type="xs:string"/>
+    <part name="bDeviceId" type="xs:int"/>
+    <part name="NamesArray" type="ns1:ArrayOfString"/>
+    <part name="ValuesArray" type="ns1:ArrayOfString"/>
+  </message>
+  <message name="General_Business_Device_Update60Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="General_Business_Device_Get61Request">
+    <part name="ol_EntityID" type="xs:int"/>
+    <part name="ol_Username" type="xs:string"/>
+    <part name="ol_Password" type="xs:string"/>
+    <part name="BusinessId" type="xs:int"/>
+    <part name="Fields" type="ns1:ArrayOfString"/>
+    <part name="FilterFields" type="ns1:ArrayOfString"/>
+    <part name="FilterValues" type="ns1:ArrayOfString"/>
+    <part name="LimitFrom" type="xs:int"/>
+    <part name="LimitCount" type="xs:int"/>
+  </message>
+  <message name="General_Business_Device_Get61Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="Sales_Products_Categories_Update62Request">
+    <part name="ol_EntityID" type="xs:int"/>
+    <part name="ol_Username" type="xs:string"/>
+    <part name="ol_Password" type="xs:string"/>
+    <part name="CategoryID" type="xs:int"/>
+    <part name="NamesArray" type="ns1:ArrayOfString"/>
+    <part name="ValuesArray" type="ns1:ArrayOfString"/>
+  </message>
+  <message name="Sales_Products_Categories_Update62Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="Sales_Product_Packages_Update63Request">
+    <part name="ol_EntityID" type="xs:int"/>
+    <part name="ol_Username" type="xs:string"/>
+    <part name="ol_Password" type="xs:string"/>
+    <part name="packageId" type="xs:int"/>
+    <part name="NamesArray" type="ns1:ArrayOfString"/>
+    <part name="ValuesArray" type="ns1:ArrayOfString"/>
+    <part name="ProductIds" type="ns1:ArrayOfString"/>
+    <part name="SellPrices" type="ns1:ArrayOfString"/>
+  </message>
+  <message name="Sales_Product_Packages_Update63Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="Sales_Product_Packages_Get64Request">
+    <part name="ol_EntityID" type="xs:int"/>
+    <part name="ol_Username" type="xs:string"/>
+    <part name="ol_Password" type="xs:string"/>
+    <part name="BusinessId" type="xs:int"/>
+    <part name="Fields" type="ns1:ArrayOfString"/>
+    <part name="FilterFields" type="ns1:ArrayOfString"/>
+    <part name="FilterValues" type="ns1:ArrayOfString"/>
+    <part name="LimitFrom" type="xs:int"/>
+    <part name="LimitCount" type="xs:int"/>
+  </message>
+  <message name="Sales_Product_Packages_Get64Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="Employees_Get65Request">
+    <part name="ol_EntityID" type="xs:int"/>
+    <part name="ol_Username" type="xs:string"/>
+    <part name="ol_Password" type="xs:string"/>
+    <part name="BusinessId" type="xs:int"/>
+    <part name="Fields" type="ns1:ArrayOfString"/>
+    <part name="FilterFields" type="ns1:ArrayOfString"/>
+    <part name="FilterValues" type="ns1:ArrayOfString"/>
+    <part name="LimitFrom" type="xs:int"/>
+    <part name="LimitCount" type="xs:int"/>
+  </message>
+  <message name="Employees_Get65Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="Employees_Update66Request">
+    <part name="ol_EntityID" type="xs:int"/>
+    <part name="ol_Username" type="xs:string"/>
+    <part name="ol_Password" type="xs:string"/>
+    <part name="entityId" type="xs:int"/>
+    <part name="businessId" type="xs:int"/>
+    <part name="NamesArray" type="ns1:ArrayOfString"/>
+    <part name="ValuesArray" type="ns1:ArrayOfString"/>
+  </message>
+  <message name="Employees_Update66Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="Employees_Shift_Get67Request">
+    <part name="ol_EntityID" type="xs:int"/>
+    <part name="ol_Username" type="xs:string"/>
+    <part name="ol_Password" type="xs:string"/>
+    <part name="EntityId" type="xs:int"/>
+    <part name="Fields" type="ns1:ArrayOfString"/>
+    <part name="FilterFields" type="ns1:ArrayOfString"/>
+    <part name="FilterValues" type="ns1:ArrayOfString"/>
+    <part name="LimitFrom" type="xs:int"/>
+    <part name="LimitCount" type="xs:int"/>
+  </message>
+  <message name="Employees_Shift_Get67Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="Employees_Shift_Update68Request">
+    <part name="ol_EntityID" type="xs:int"/>
+    <part name="ol_Username" type="xs:string"/>
+    <part name="ol_Password" type="xs:string"/>
+    <part name="entityId" type="xs:int"/>
+    <part name="businessId" type="xs:int"/>
+    <part name="NamesArray" type="ns1:ArrayOfString"/>
+    <part name="ValuesArray" type="ns1:ArrayOfString"/>
+  </message>
+  <message name="Employees_Shift_Update68Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="Entity_Device_Get69Request">
+    <part name="ol_EntityID" type="xs:int"/>
+    <part name="ol_Username" type="xs:string"/>
+    <part name="ol_Password" type="xs:string"/>
+    <part name="Fields" type="ns1:ArrayOfString"/>
+    <part name="FilterFields" type="ns1:ArrayOfString"/>
+    <part name="FilterValues" type="ns1:ArrayOfString"/>
+    <part name="LimitFrom" type="xs:int"/>
+    <part name="LimitCount" type="xs:int"/>
+  </message>
+  <message name="Entity_Device_Get69Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="Log_Isapi_Get70Request">
+    <part name="ol_EntityID" type="xs:int"/>
+    <part name="ol_Username" type="xs:string"/>
+    <part name="ol_Password" type="xs:string"/>
+    <part name="DateFrom" type="xs:string"/>
+    <part name="DateTo" type="xs:string"/>
+    <part name="IP" type="xs:string"/>
+    <part name="LimitFrom" type="xs:int"/>
+    <part name="LimitCount" type="xs:int"/>
+  </message>
+  <message name="Log_Isapi_Get70Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="Sales_Product_Update71Request">
+    <part name="ol_EntityID" type="xs:int"/>
+    <part name="ol_Username" type="xs:string"/>
+    <part name="ol_Password" type="xs:string"/>
+    <part name="productId" type="xs:int"/>
+    <part name="businessId" type="xs:int"/>
+    <part name="NamesArray" type="ns1:ArrayOfString"/>
+    <part name="ValuesArray" type="ns1:ArrayOfString"/>
+  </message>
+  <message name="Sales_Product_Update71Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="Sales_Product_Get72Request">
+    <part name="ol_EntityID" type="xs:int"/>
+    <part name="ol_Username" type="xs:string"/>
+    <part name="ol_Password" type="xs:string"/>
+    <part name="BusinessId" type="xs:int"/>
+    <part name="Fields" type="ns1:ArrayOfString"/>
+    <part name="FilterFields" type="ns1:ArrayOfString"/>
+    <part name="FilterValues" type="ns1:ArrayOfString"/>
+    <part name="LimitFrom" type="xs:int"/>
+    <part name="LimitCount" type="xs:int"/>
+  </message>
+  <message name="Sales_Product_Get72Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="Sales_PaymentsMethod_Update73Request">
+    <part name="ol_EntityID" type="xs:int"/>
+    <part name="ol_Username" type="xs:string"/>
+    <part name="ol_Password" type="xs:string"/>
+    <part name="paymentId" type="xs:int"/>
+    <part name="businessId" type="xs:int"/>
+    <part name="NamesArray" type="ns1:ArrayOfString"/>
+    <part name="ValuesArray" type="ns1:ArrayOfString"/>
+  </message>
+  <message name="Sales_PaymentsMethod_Update73Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="Entity_Categories_Get74Request">
+    <part name="ol_EntityID" type="xs:int"/>
+    <part name="ol_Username" type="xs:string"/>
+    <part name="ol_Password" type="xs:string"/>
+    <part name="parentId" type="xs:int"/>
+    <part name="Fields" type="ns1:ArrayOfString"/>
+    <part name="FilterFields" type="ns1:ArrayOfString"/>
+    <part name="FilterValues" type="ns1:ArrayOfString"/>
+    <part name="LimitFrom" type="xs:int"/>
+    <part name="LimitCount" type="xs:int"/>
+  </message>
+  <message name="Entity_Categories_Get74Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="Sales_Orders_Documents_Get75Request">
+    <part name="ol_EntityID" type="xs:int"/>
+    <part name="ol_Username" type="xs:string"/>
+    <part name="ol_Password" type="xs:string"/>
+    <part name="BusinessId" type="xs:int"/>
+    <part name="Fields" type="ns1:ArrayOfString"/>
+    <part name="FilterFields" type="ns1:ArrayOfString"/>
+    <part name="FilterValues" type="ns1:ArrayOfString"/>
+    <part name="LimitFrom" type="xs:int"/>
+    <part name="LimitCount" type="xs:int"/>
+  </message>
+  <message name="Sales_Orders_Documents_Get75Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="Sales_Orders_Documents_Update76Request">
+    <part name="ol_EntityID" type="xs:int"/>
+    <part name="ol_Username" type="xs:string"/>
+    <part name="ol_Password" type="xs:string"/>
+    <part name="order_documentId" type="xs:int"/>
+    <part name="BusinessId" type="xs:int"/>
+    <part name="NamesArray" type="ns1:ArrayOfString"/>
+    <part name="ValuesArray" type="ns1:ArrayOfString"/>
+  </message>
+  <message name="Sales_Orders_Documents_Update76Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="Outgoing_Campaign_Update77Request">
+    <part name="ol_EntityID" type="xs:int"/>
+    <part name="ol_Username" type="xs:string"/>
+    <part name="ol_Password" type="xs:string"/>
+    <part name="messageId" type="xs:int"/>
+    <part name="businessId" type="xs:int"/>
+    <part name="NamesArray" type="ns1:ArrayOfString"/>
+    <part name="ValuesArray" type="ns1:ArrayOfString"/>
+  </message>
+  <message name="Outgoing_Campaign_Update77Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="General_Business_Update78Request">
+    <part name="ol_EntityID" type="xs:int"/>
+    <part name="ol_Username" type="xs:string"/>
+    <part name="ol_Password" type="xs:string"/>
+    <part name="BusinessId" type="xs:int"/>
+    <part name="NamesArray" type="ns1:ArrayOfString"/>
+    <part name="ValuesArray" type="ns1:ArrayOfString"/>
+  </message>
+  <message name="General_Business_Update78Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="Entity_Import79Request">
+    <part name="ol_EntityID" type="xs:int"/>
+    <part name="ol_Username" type="xs:string"/>
+    <part name="ol_Password" type="xs:string"/>
+    <part name="BusinessId" type="xs:int"/>
+    <part name="Employee_EntityId" type="xs:int"/>
+    <part name="affiliate_entityId" type="xs:int"/>
+    <part name="ImportId" type="xs:int"/>
+    <part name="ImportDataJSON" type="xs:string"/>
+  </message>
+  <message name="Entity_Import79Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="General_Reports_Export80Request">
+    <part name="ol_EntityID" type="xs:int"/>
+    <part name="ol_Username" type="xs:string"/>
+    <part name="ol_Password" type="xs:string"/>
+    <part name="DLL_File_Name" type="xs:string"/>
+    <part name="FunctionName" type="xs:string"/>
+    <part name="ParamsFields" type="ns1:ArrayOfString"/>
+    <part name="ParamsValues" type="ns1:ArrayOfString"/>
+    <part name="LimitFrom" type="xs:int"/>
+    <part name="LimitCount" type="xs:int"/>
+  </message>
+  <message name="General_Reports_Export80Response">
+    <part name="return" type="ns2:ArrayOfByte"/>
+  </message>
+  <message name="General_Functions81Request">
+    <part name="FunctionType" type="xs:string"/>
+    <part name="InputFields" type="ns1:ArrayOfString"/>
+    <part name="InputValues" type="ns1:ArrayOfString"/>
+  </message>
+  <message name="General_Functions81Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="Telemarketing_Campaign_Get82Request">
+    <part name="ol_EntityID" type="xs:int"/>
+    <part name="ol_Username" type="xs:string"/>
+    <part name="ol_Password" type="xs:string"/>
+    <part name="BusinessId" type="xs:int"/>
+    <part name="Fields" type="ns1:ArrayOfString"/>
+    <part name="FilterFields" type="ns1:ArrayOfString"/>
+    <part name="FilterValues" type="ns1:ArrayOfString"/>
+    <part name="LimitFrom" type="xs:int"/>
+    <part name="LimitCount" type="xs:int"/>
+  </message>
+  <message name="Telemarketing_Campaign_Get82Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="Entity_Files_Get83Request">
+    <part name="ol_EntityID" type="xs:int"/>
+    <part name="ol_Username" type="xs:string"/>
+    <part name="ol_Password" type="xs:string"/>
+    <part name="BusinessId" type="xs:int"/>
+    <part name="Fields" type="ns1:ArrayOfString"/>
+    <part name="FilterFields" type="ns1:ArrayOfString"/>
+    <part name="FilterValues" type="ns1:ArrayOfString"/>
+    <part name="LimitFrom" type="xs:int"/>
+    <part name="LimitCount" type="xs:int"/>
+  </message>
+  <message name="Entity_Files_Get83Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="Entity_Files_Update84Request">
+    <part name="ol_EntityID" type="xs:int"/>
+    <part name="ol_Username" type="xs:string"/>
+    <part name="ol_Password" type="xs:string"/>
+    <part name="FileId" type="xs:int"/>
+    <part name="BusinessId" type="xs:int"/>
+    <part name="NamesArray" type="ns1:ArrayOfString"/>
+    <part name="ValuesArray" type="ns1:ArrayOfString"/>
+    <part name="FileData" type="ns2:ArrayOfByte"/>
+  </message>
+  <message name="Entity_Files_Update84Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="Tasks_Candidates_Get85Request">
+    <part name="ol_EntityID" type="xs:int"/>
+    <part name="ol_Username" type="xs:string"/>
+    <part name="ol_Password" type="xs:string"/>
+    <part name="taskID" type="xs:int"/>
+    <part name="Fields" type="ns1:ArrayOfString"/>
+    <part name="FilterFields" type="ns1:ArrayOfString"/>
+    <part name="FilterValues" type="ns1:ArrayOfString"/>
+    <part name="LimitFrom" type="xs:int"/>
+    <part name="LimitCount" type="xs:int"/>
+  </message>
+  <message name="Tasks_Candidates_Get85Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="Tasks_Candidates_Update86Request">
+    <part name="ol_EntityID" type="xs:int"/>
+    <part name="ol_Username" type="xs:string"/>
+    <part name="ol_Password" type="xs:string"/>
+    <part name="TaskId" type="xs:int"/>
+    <part name="entity_employeeID" type="xs:int"/>
+    <part name="NamesArray" type="ns1:ArrayOfString"/>
+    <part name="ValuesArray" type="ns1:ArrayOfString"/>
+  </message>
+  <message name="Tasks_Candidates_Update86Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <message name="Tasks_Update87Request">
+    <part name="ol_EntityID" type="xs:int"/>
+    <part name="ol_Username" type="xs:string"/>
+    <part name="ol_Password" type="xs:string"/>
+    <part name="TaskId" type="xs:int"/>
+    <part name="NamesArray" type="ns1:ArrayOfString"/>
+    <part name="ValuesArray" type="ns1:ArrayOfString"/>
+  </message>
+  <message name="Tasks_Update87Response">
+    <part name="return" type="xs:string"/>
+  </message>
+  <portType name="IBusinessAPI">
+    <operation name="Ol_login">
+      <input message="tns:Ol_login0Request"/>
+      <output message="tns:Ol_login0Response"/>
+    </operation>
+    <operation name="Entity_Add">
+      <input message="tns:Entity_Add1Request"/>
+      <output message="tns:Entity_Add1Response"/>
+    </operation>
+    <operation name="UpdateTerminate">
+      <input message="tns:UpdateTerminate2Request"/>
+      <output message="tns:UpdateTerminate2Response"/>
+    </operation>
+    <operation name="General_Users_Get">
+      <input message="tns:General_Users_Get3Request"/>
+      <output message="tns:General_Users_Get3Response"/>
+    </operation>
+    <operation name="General_Business_Get">
+      <input message="tns:General_Business_Get4Request"/>
+      <output message="tns:General_Business_Get4Response"/>
+    </operation>
+    <operation name="Sales_Inventory_Get">
+      <input message="tns:Sales_Inventory_Get5Request"/>
+      <output message="tns:Sales_Inventory_Get5Response"/>
+    </operation>
+    <operation name="Sales_PaymentsMethod_Get">
+      <input message="tns:Sales_PaymentsMethod_Get6Request"/>
+      <output message="tns:Sales_PaymentsMethod_Get6Response"/>
+    </operation>
+    <operation name="Entity_Find">
+      <input message="tns:Entity_Find7Request"/>
+      <output message="tns:Entity_Find7Response"/>
+    </operation>
+    <operation name="GenerateUserGuide">
+      <input message="tns:GenerateUserGuide8Request"/>
+      <output message="tns:GenerateUserGuide8Response"/>
+    </operation>
+    <operation name="GetUserGuide">
+      <input message="tns:GetUserGuide9Request"/>
+      <output message="tns:GetUserGuide9Response"/>
+    </operation>
+    <operation name="Entity_Update">
+      <input message="tns:Entity_Update10Request"/>
+      <output message="tns:Entity_Update10Response"/>
+    </operation>
+    <operation name="Sales_Orders_Update">
+      <input message="tns:Sales_Orders_Update11Request"/>
+      <output message="tns:Sales_Orders_Update11Response"/>
+    </operation>
+    <operation name="Sales_Orders_Get">
+      <input message="tns:Sales_Orders_Get12Request"/>
+      <output message="tns:Sales_Orders_Get12Response"/>
+    </operation>
+    <operation name="Sales_Orders_Product_Update">
+      <input message="tns:Sales_Orders_Product_Update13Request"/>
+      <output message="tns:Sales_Orders_Product_Update13Response"/>
+    </operation>
+    <operation name="Sales_Orders_Product_Get">
+      <input message="tns:Sales_Orders_Product_Get14Request"/>
+      <output message="tns:Sales_Orders_Product_Get14Response"/>
+    </operation>
+    <operation name="Sales_Orders_Payment_Update">
+      <input message="tns:Sales_Orders_Payment_Update15Request"/>
+      <output message="tns:Sales_Orders_Payment_Update15Response"/>
+    </operation>
+    <operation name="Entity_Logtraffic">
+      <input message="tns:Entity_Logtraffic16Request"/>
+      <output message="tns:Entity_Logtraffic16Response"/>
+    </operation>
+    <operation name="CustomFields_GetBoxValues">
+      <input message="tns:CustomFields_GetBoxValues17Request"/>
+      <output message="tns:CustomFields_GetBoxValues17Response"/>
+    </operation>
+    <operation name="CustomFields_GetTableRecords">
+      <input message="tns:CustomFields_GetTableRecords18Request"/>
+      <output message="tns:CustomFields_GetTableRecords18Response"/>
+    </operation>
+    <operation name="CustomFields_GetFields">
+      <input message="tns:CustomFields_GetFields19Request"/>
+      <output message="tns:CustomFields_GetFields19Response"/>
+    </operation>
+    <operation name="General_ConnectionData_Get">
+      <input message="tns:General_ConnectionData_Get20Request"/>
+      <output message="tns:General_ConnectionData_Get20Response"/>
+    </operation>
+    <operation name="Entity_VerifyContactInfo">
+      <input message="tns:Entity_VerifyContactInfo21Request"/>
+      <output message="tns:Entity_VerifyContactInfo21Response"/>
+    </operation>
+    <operation name="CustomFields_AddBoxValues">
+      <input message="tns:CustomFields_AddBoxValues22Request"/>
+      <output message="tns:CustomFields_AddBoxValues22Response"/>
+    </operation>
+    <operation name="Outgoing_get">
+      <input message="tns:Outgoing_get23Request"/>
+      <output message="tns:Outgoing_get23Response"/>
+    </operation>
+    <operation name="Outgoing_set">
+      <input message="tns:Outgoing_set24Request"/>
+      <output message="tns:Outgoing_set24Response"/>
+    </operation>
+    <operation name="Outgoing_add">
+      <input message="tns:Outgoing_add25Request"/>
+      <output message="tns:Outgoing_add25Response"/>
+    </operation>
+    <operation name="Entity_Forgotpassword">
+      <input message="tns:Entity_Forgotpassword26Request"/>
+      <output message="tns:Entity_Forgotpassword26Response"/>
+    </operation>
+    <operation name="Incoming_Add">
+      <input message="tns:Incoming_Add27Request"/>
+      <output message="tns:Incoming_Add27Response"/>
+    </operation>
+    <operation name="Purchase_Get">
+      <input message="tns:Purchase_Get28Request"/>
+      <output message="tns:Purchase_Get28Response"/>
+    </operation>
+    <operation name="Purchase_Products_Get">
+      <input message="tns:Purchase_Products_Get29Request"/>
+      <output message="tns:Purchase_Products_Get29Response"/>
+    </operation>
+    <operation name="Purchase_Update">
+      <input message="tns:Purchase_Update30Request"/>
+      <output message="tns:Purchase_Update30Response"/>
+    </operation>
+    <operation name="Sales_Document_Issue">
+      <input message="tns:Sales_Document_Issue31Request"/>
+      <output message="tns:Sales_Document_Issue31Response"/>
+    </operation>
+    <operation name="General_DataList_Get">
+      <input message="tns:General_DataList_Get32Request"/>
+      <output message="tns:General_DataList_Get32Response"/>
+    </operation>
+    <operation name="General_Decrypt">
+      <input message="tns:General_Decrypt33Request"/>
+      <output message="tns:General_Decrypt33Response"/>
+    </operation>
+    <operation name="Purchase_Product_Update">
+      <input message="tns:Purchase_Product_Update34Request"/>
+      <output message="tns:Purchase_Product_Update34Response"/>
+    </operation>
+    <operation name="Purchase_Payment_Update">
+      <input message="tns:Purchase_Payment_Update35Request"/>
+      <output message="tns:Purchase_Payment_Update35Response"/>
+    </operation>
+    <operation name="General_Reports_Get">
+      <input message="tns:General_Reports_Get36Request"/>
+      <output message="tns:General_Reports_Get36Response"/>
+    </operation>
+    <operation name="RomaTestFunc">
+      <input message="tns:RomaTestFunc37Request"/>
+      <output message="tns:RomaTestFunc37Response"/>
+    </operation>
+    <operation name="Telemarketing_add">
+      <input message="tns:Telemarketing_add38Request"/>
+      <output message="tns:Telemarketing_add38Response"/>
+    </operation>
+    <operation name="System_Version_Get">
+      <input message="tns:System_Version_Get39Request"/>
+      <output message="tns:System_Version_Get39Response"/>
+    </operation>
+    <operation name="Sales_Orders_Payments_Get">
+      <input message="tns:Sales_Orders_Payments_Get40Request"/>
+      <output message="tns:Sales_Orders_Payments_Get40Response"/>
+    </operation>
+    <operation name="Sales_Products_Categories_Get">
+      <input message="tns:Sales_Products_Categories_Get41Request"/>
+      <output message="tns:Sales_Products_Categories_Get41Response"/>
+    </operation>
+    <operation name="Purchase_Catalog_Get">
+      <input message="tns:Purchase_Catalog_Get42Request"/>
+      <output message="tns:Purchase_Catalog_Get42Response"/>
+    </operation>
+    <operation name="Sales_Documents_Get">
+      <input message="tns:Sales_Documents_Get43Request"/>
+      <output message="tns:Sales_Documents_Get43Response"/>
+    </operation>
+    <operation name="UserGuide_ReadWrite">
+      <input message="tns:UserGuide_ReadWrite44Request"/>
+      <output message="tns:UserGuide_ReadWrite44Response"/>
+    </operation>
+    <operation name="Purchase_Inventory_Count_Update">
+      <input message="tns:Purchase_Inventory_Count_Update45Request"/>
+      <output message="tns:Purchase_Inventory_Count_Update45Response"/>
+    </operation>
+    <operation name="Purchase_Inventory_Count_Get">
+      <input message="tns:Purchase_Inventory_Count_Get46Request"/>
+      <output message="tns:Purchase_Inventory_Count_Get46Response"/>
+    </operation>
+    <operation name="Purchase_Inventory_Lost_Update">
+      <input message="tns:Purchase_Inventory_Lost_Update47Request"/>
+      <output message="tns:Purchase_Inventory_Lost_Update47Response"/>
+    </operation>
+    <operation name="Sales_Orders_Commissions_Set">
+      <input message="tns:Sales_Orders_Commissions_Set48Request"/>
+      <output message="tns:Sales_Orders_Commissions_Set48Response"/>
+    </operation>
+    <operation name="Restaurant_Orders_Update">
+      <input message="tns:Restaurant_Orders_Update49Request"/>
+      <output message="tns:Restaurant_Orders_Update49Response"/>
+    </operation>
+    <operation name="Restaurant_Zone_Update">
+      <input message="tns:Restaurant_Zone_Update50Request"/>
+      <output message="tns:Restaurant_Zone_Update50Response"/>
+    </operation>
+    <operation name="Restaurant_Zone_Get">
+      <input message="tns:Restaurant_Zone_Get51Request"/>
+      <output message="tns:Restaurant_Zone_Get51Response"/>
+    </operation>
+    <operation name="Restaurant_Tables_Update">
+      <input message="tns:Restaurant_Tables_Update52Request"/>
+      <output message="tns:Restaurant_Tables_Update52Response"/>
+    </operation>
+    <operation name="Restaurant_Tables_Get">
+      <input message="tns:Restaurant_Tables_Get53Request"/>
+      <output message="tns:Restaurant_Tables_Get53Response"/>
+    </operation>
+    <operation name="Restaurant_Orders_Get">
+      <input message="tns:Restaurant_Orders_Get54Request"/>
+      <output message="tns:Restaurant_Orders_Get54Response"/>
+    </operation>
+    <operation name="PushNotifications">
+      <input message="tns:PushNotifications55Request"/>
+      <output message="tns:PushNotifications55Response"/>
+    </operation>
+    <operation name="Entity_Device_Log">
+      <input message="tns:Entity_Device_Log56Request"/>
+      <output message="tns:Entity_Device_Log56Response"/>
+    </operation>
+    <operation name="Device_Log_Remove">
+      <input message="tns:Device_Log_Remove57Request"/>
+      <output message="tns:Device_Log_Remove57Response"/>
+    </operation>
+    <operation name="Outgoing_Campaign_Get">
+      <input message="tns:Outgoing_Campaign_Get58Request"/>
+      <output message="tns:Outgoing_Campaign_Get58Response"/>
+    </operation>
+    <operation name="System_Sync_Get">
+      <input message="tns:System_Sync_Get59Request"/>
+      <output message="tns:System_Sync_Get59Response"/>
+    </operation>
+    <operation name="General_Business_Device_Update">
+      <input message="tns:General_Business_Device_Update60Request"/>
+      <output message="tns:General_Business_Device_Update60Response"/>
+    </operation>
+    <operation name="General_Business_Device_Get">
+      <input message="tns:General_Business_Device_Get61Request"/>
+      <output message="tns:General_Business_Device_Get61Response"/>
+    </operation>
+    <operation name="Sales_Products_Categories_Update">
+      <input message="tns:Sales_Products_Categories_Update62Request"/>
+      <output message="tns:Sales_Products_Categories_Update62Response"/>
+    </operation>
+    <operation name="Sales_Product_Packages_Update">
+      <input message="tns:Sales_Product_Packages_Update63Request"/>
+      <output message="tns:Sales_Product_Packages_Update63Response"/>
+    </operation>
+    <operation name="Sales_Product_Packages_Get">
+      <input message="tns:Sales_Product_Packages_Get64Request"/>
+      <output message="tns:Sales_Product_Packages_Get64Response"/>
+    </operation>
+    <operation name="Employees_Get">
+      <input message="tns:Employees_Get65Request"/>
+      <output message="tns:Employees_Get65Response"/>
+    </operation>
+    <operation name="Employees_Update">
+      <input message="tns:Employees_Update66Request"/>
+      <output message="tns:Employees_Update66Response"/>
+    </operation>
+    <operation name="Employees_Shift_Get">
+      <input message="tns:Employees_Shift_Get67Request"/>
+      <output message="tns:Employees_Shift_Get67Response"/>
+    </operation>
+    <operation name="Employees_Shift_Update">
+      <input message="tns:Employees_Shift_Update68Request"/>
+      <output message="tns:Employees_Shift_Update68Response"/>
+    </operation>
+    <operation name="Entity_Device_Get">
+      <input message="tns:Entity_Device_Get69Request"/>
+      <output message="tns:Entity_Device_Get69Response"/>
+    </operation>
+    <operation name="Log_Isapi_Get">
+      <input message="tns:Log_Isapi_Get70Request"/>
+      <output message="tns:Log_Isapi_Get70Response"/>
+    </operation>
+    <operation name="Sales_Product_Update">
+      <input message="tns:Sales_Product_Update71Request"/>
+      <output message="tns:Sales_Product_Update71Response"/>
+    </operation>
+    <operation name="Sales_Product_Get">
+      <input message="tns:Sales_Product_Get72Request"/>
+      <output message="tns:Sales_Product_Get72Response"/>
+    </operation>
+    <operation name="Sales_PaymentsMethod_Update">
+      <input message="tns:Sales_PaymentsMethod_Update73Request"/>
+      <output message="tns:Sales_PaymentsMethod_Update73Response"/>
+    </operation>
+    <operation name="Entity_Categories_Get">
+      <input message="tns:Entity_Categories_Get74Request"/>
+      <output message="tns:Entity_Categories_Get74Response"/>
+    </operation>
+    <operation name="Sales_Orders_Documents_Get">
+      <input message="tns:Sales_Orders_Documents_Get75Request"/>
+      <output message="tns:Sales_Orders_Documents_Get75Response"/>
+    </operation>
+    <operation name="Sales_Orders_Documents_Update">
+      <input message="tns:Sales_Orders_Documents_Update76Request"/>
+      <output message="tns:Sales_Orders_Documents_Update76Response"/>
+    </operation>
+    <operation name="Outgoing_Campaign_Update">
+      <input message="tns:Outgoing_Campaign_Update77Request"/>
+      <output message="tns:Outgoing_Campaign_Update77Response"/>
+    </operation>
+    <operation name="General_Business_Update">
+      <input message="tns:General_Business_Update78Request"/>
+      <output message="tns:General_Business_Update78Response"/>
+    </operation>
+    <operation name="Entity_Import">
+      <input message="tns:Entity_Import79Request"/>
+      <output message="tns:Entity_Import79Response"/>
+    </operation>
+    <operation name="General_Reports_Export">
+      <input message="tns:General_Reports_Export80Request"/>
+      <output message="tns:General_Reports_Export80Response"/>
+    </operation>
+    <operation name="General_Functions">
+      <input message="tns:General_Functions81Request"/>
+      <output message="tns:General_Functions81Response"/>
+    </operation>
+    <operation name="Telemarketing_Campaign_Get">
+      <input message="tns:Telemarketing_Campaign_Get82Request"/>
+      <output message="tns:Telemarketing_Campaign_Get82Response"/>
+    </operation>
+    <operation name="Entity_Files_Get">
+      <input message="tns:Entity_Files_Get83Request"/>
+      <output message="tns:Entity_Files_Get83Response"/>
+    </operation>
+    <operation name="Entity_Files_Update">
+      <input message="tns:Entity_Files_Update84Request"/>
+      <output message="tns:Entity_Files_Update84Response"/>
+    </operation>
+    <operation name="Tasks_Candidates_Get">
+      <input message="tns:Tasks_Candidates_Get85Request"/>
+      <output message="tns:Tasks_Candidates_Get85Response"/>
+    </operation>
+    <operation name="Tasks_Candidates_Update">
+      <input message="tns:Tasks_Candidates_Update86Request"/>
+      <output message="tns:Tasks_Candidates_Update86Response"/>
+    </operation>
+    <operation name="Tasks_Update">
+      <input message="tns:Tasks_Update87Request"/>
+      <output message="tns:Tasks_Update87Response"/>
+    </operation>
+  </portType>
+  <binding name="IBusinessAPIbinding" type="tns:IBusinessAPI">
+    <binding xmlns="http://schemas.xmlsoap.org/wsdl/soap/" style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="Ol_login">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#Ol_login" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="Entity_Add">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#Entity_Add" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="UpdateTerminate">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#UpdateTerminate" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="General_Users_Get">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#General_Users_Get" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="General_Business_Get">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#General_Business_Get" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="Sales_Inventory_Get">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#Sales_Inventory_Get" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="Sales_PaymentsMethod_Get">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#Sales_PaymentsMethod_Get" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="Entity_Find">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#Entity_Find" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="GenerateUserGuide">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#GenerateUserGuide" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="GetUserGuide">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#GetUserGuide" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="Entity_Update">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#Entity_Update" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="Sales_Orders_Update">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#Sales_Orders_Update" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="Sales_Orders_Get">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#Sales_Orders_Get" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="Sales_Orders_Product_Update">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#Sales_Orders_Product_Update" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="Sales_Orders_Product_Get">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#Sales_Orders_Product_Get" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="Sales_Orders_Payment_Update">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#Sales_Orders_Payment_Update" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="Entity_Logtraffic">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#Entity_Logtraffic" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="CustomFields_GetBoxValues">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#CustomFields_GetBoxValues" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="CustomFields_GetTableRecords">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#CustomFields_GetTableRecords" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="CustomFields_GetFields">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#CustomFields_GetFields" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="General_ConnectionData_Get">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#General_ConnectionData_Get" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="Entity_VerifyContactInfo">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#Entity_VerifyContactInfo" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="CustomFields_AddBoxValues">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#CustomFields_AddBoxValues" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="Outgoing_get">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#Outgoing_get" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="Outgoing_set">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#Outgoing_set" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="Outgoing_add">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#Outgoing_add" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="Entity_Forgotpassword">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#Entity_Forgotpassword" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="Incoming_Add">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#Incoming_Add" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="Purchase_Get">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#Purchase_Get" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="Purchase_Products_Get">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#Purchase_Products_Get" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="Purchase_Update">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#Purchase_Update" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="Sales_Document_Issue">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#Sales_Document_Issue" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="General_DataList_Get">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#General_DataList_Get" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="General_Decrypt">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#General_Decrypt" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="Purchase_Product_Update">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#Purchase_Product_Update" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="Purchase_Payment_Update">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#Purchase_Payment_Update" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="General_Reports_Get">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#General_Reports_Get" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="RomaTestFunc">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#RomaTestFunc" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="Telemarketing_add">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#Telemarketing_add" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="System_Version_Get">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#System_Version_Get" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="Sales_Orders_Payments_Get">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#Sales_Orders_Payments_Get" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="Sales_Products_Categories_Get">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#Sales_Products_Categories_Get" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="Purchase_Catalog_Get">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#Purchase_Catalog_Get" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="Sales_Documents_Get">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#Sales_Documents_Get" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="UserGuide_ReadWrite">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#UserGuide_ReadWrite" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="Purchase_Inventory_Count_Update">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#Purchase_Inventory_Count_Update" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="Purchase_Inventory_Count_Get">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#Purchase_Inventory_Count_Get" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="Purchase_Inventory_Lost_Update">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#Purchase_Inventory_Lost_Update" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="Sales_Orders_Commissions_Set">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#Sales_Orders_Commissions_Set" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="Restaurant_Orders_Update">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#Restaurant_Orders_Update" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="Restaurant_Zone_Update">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#Restaurant_Zone_Update" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="Restaurant_Zone_Get">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#Restaurant_Zone_Get" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="Restaurant_Tables_Update">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#Restaurant_Tables_Update" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="Restaurant_Tables_Get">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#Restaurant_Tables_Get" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="Restaurant_Orders_Get">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#Restaurant_Orders_Get" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="PushNotifications">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#PushNotifications" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="Entity_Device_Log">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#Entity_Device_Log" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="Device_Log_Remove">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#Device_Log_Remove" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="Outgoing_Campaign_Get">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#Outgoing_Campaign_Get" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="System_Sync_Get">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#System_Sync_Get" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="General_Business_Device_Update">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#General_Business_Device_Update" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="General_Business_Device_Get">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#General_Business_Device_Get" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="Sales_Products_Categories_Update">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#Sales_Products_Categories_Update" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="Sales_Product_Packages_Update">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#Sales_Product_Packages_Update" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="Sales_Product_Packages_Get">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#Sales_Product_Packages_Get" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="Employees_Get">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#Employees_Get" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="Employees_Update">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#Employees_Update" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="Employees_Shift_Get">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#Employees_Shift_Get" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="Employees_Shift_Update">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#Employees_Shift_Update" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="Entity_Device_Get">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#Entity_Device_Get" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="Log_Isapi_Get">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#Log_Isapi_Get" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="Sales_Product_Update">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#Sales_Product_Update" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="Sales_Product_Get">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#Sales_Product_Get" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="Sales_PaymentsMethod_Update">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#Sales_PaymentsMethod_Update" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="Entity_Categories_Get">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#Entity_Categories_Get" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="Sales_Orders_Documents_Get">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#Sales_Orders_Documents_Get" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="Sales_Orders_Documents_Update">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#Sales_Orders_Documents_Update" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="Outgoing_Campaign_Update">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#Outgoing_Campaign_Update" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="General_Business_Update">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#General_Business_Update" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="Entity_Import">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#Entity_Import" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="General_Reports_Export">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#General_Reports_Export" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="General_Functions">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#General_Functions" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="Telemarketing_Campaign_Get">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#Telemarketing_Campaign_Get" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="Entity_Files_Get">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#Entity_Files_Get" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="Entity_Files_Update">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#Entity_Files_Update" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="Tasks_Candidates_Get">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#Tasks_Candidates_Get" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="Tasks_Candidates_Update">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#Tasks_Candidates_Update" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+    <operation name="Tasks_Update">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:BusinessApiIntf-IBusinessAPI#Tasks_Update" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BusinessApiIntf-IBusinessAPI"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="IBusinessAPIservice">
+    <port name="IBusinessAPIPort" binding="tns:IBusinessAPIbinding">
+      <address xmlns="http://schemas.xmlsoap.org/wsdl/soap/" location="http://localhost:33322/soap/IBusinessAPI"/>
+    </port>
+  </service>
+</definitions>
+
